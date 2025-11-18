@@ -4,43 +4,60 @@
 
 @layer base {
   :root {
+    /* Fonts */
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-geist: 'Geist', system-ui, sans-serif;
     --font-geist-mono: 'Geist Mono', monospace;
     --font-mona: 'Mona Sans', system-ui, sans-serif;
     --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
     --font-manrope: 'Manrope', system-ui, sans-serif;
+
+    /* Palette – Joyeuse & Vibrante */
+    /* Backgrounds doux */
+    --bg-primary: #FFF5F7;       /* Rose crème */
+    --bg-secondary: #FFF0F5;     /* Rose poudré */
+    --bg-card: #FFFFFF;          /* Blanc pur */
+
+    /* Gradients principaux */
+    --gradient-sunrise: linear-gradient(135deg,
+      #FF6B9D 0%,    /* Rose bonbon */
+      #FFA07A 25%,   /* Saumon */
+      #FFD93D 50%,   /* Jaune soleil */
+      #FFA5F5 75%,   /* Lilas */
+      #C996FF 100%   /* Lavande */
+    );
+
+    --gradient-candy: linear-gradient(135deg,
+      #FFE5E5 0%,    /* Rose clair */
+      #E5E5FF 33%,   /* Lavande clair */
+      #E5FFE5 66%,   /* Mint clair */
+      #FFFFE5 100%   /* Jaune pastel */
+    );
+
+    --gradient-peach: linear-gradient(135deg,
+      #FFB88C 0%,    /* Pêche */
+      #FF9A9E 50%,   /* Rose corail */
+      #FECFEF 100%   /* Rose pale */
+    );
+
+    /* Accents colorés */
+    --accent-pink: #FF6B9D;      /* Rose bonbon */
+    --accent-coral: #FF9A9E;     /* Corail */
+    --accent-peach: #FFB88C;     /* Pêche */
+    --accent-yellow: #FFD93D;    /* Jaune soleil */
+    --accent-mint: #A7F3D0;      /* Mint doux (complété) */
   }
 
-  html {
-    font-family: var(--font-sans);
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  body {
-    @apply antialiased;
-  }
+  html { font-family: var(--font-sans); font-feature-settings: "rlig" 1, "calt" 1; }
+  body { @apply antialiased; background: var(--bg-primary); }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
+/* Utilities */
 @layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
-  }
+  .animate-in { animation-name: animateIn; animation-duration: 350ms; }
+  .animate-out { animation-name: animateOut; animation-duration: 350ms; }
 
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
-  }
+  .bg-sunrise { background: var(--gradient-sunrise); }
+  .bg-candy { background: var(--gradient-candy); }
+  .bg-peach { background: var(--gradient-peach); }
 }
